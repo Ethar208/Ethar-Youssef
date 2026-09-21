@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ethar Youssef | Data Analyst</title>
+<meta name="description" content="Accounting graduate and data analyst. Dashboards, reports and analysis projects in Excel, Power BI, Tableau and Python.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2F6F3;
+    --ink: #15302B;
+    --muted: #4F6B64;
+    --rule: #B7CAC2;
+    --accent: #0E6B5F;
+    --total: #B9770E;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+    --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F1D1A;
+      --ink: #E4EEE9;
+      --muted: #93ADA5;
+      --rule: #2C4540;
+      --accent: #4FC3AF;
+      --total: #E3A648;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 3px solid var(--total); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  header.top {
+    border-bottom: 1px solid var(--rule);
+  }
+  header.top .wrap {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 18px; padding-bottom: 18px; gap: 16px; flex-wrap: wrap;
+  }
+  .brand { font-weight: 600; text-decoration: none; color: var(--ink); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+  nav a:hover { color: var(--ink); text-decoration: underline; }
+
+  .hero { padding: 72px 0 56px; }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    line-height: 1.1;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .hero p.lead { font-size: 1.15rem; max-width: 60ch; margin: 0 0 32px; color: var(--muted); }
+  .buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 4px;
+    text-decoration: none; font-weight: 500; font-size: 15px;
+    border: 1.5px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--paper); }
+  .btn.ghost { color: var(--accent); }
+  .btn:focus-visible { outline: 3px solid var(--total); outline-offset: 3px; }
+
+  /* the one memorable element: a trial-balance ledger */
+  .ledger {
+    width: 100%; border-collapse: collapse; margin-top: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .ledger caption { text-align: left; font-family: var(--serif); font-size: 1.05rem; padding-bottom: 10px; }
+  .ledger th, .ledger td { text-align: left; padding: 10px 12px 10px 0; vertical-align: top; }
+  .ledger thead th {
+    font-weight: 600; font-size: 14px; color: var(--muted);
+    border-bottom: 2px solid var(--ink);
+  }
+  .ledger tbody tr { border-bottom: 1px solid var(--rule); }
+  .ledger tfoot td {
+    border-top: 2px solid var(--ink); border-bottom: 4px double var(--ink);
+    font-weight: 600; color: var(--total);
+  }
+  .hero .ledger { margin-top: 48px; max-width: 640px; }
+
+  section { padding: 48px 0; border-top: 1px solid var(--rule); }
+  h2 { font-family: var(--serif); font-size: 1.7rem; margin: 0 0 20px; }
+  .about p { max-width: 66ch; margin: 0 0 16px; }
+
+  .table-scroll { overflow-x: auto; }
+  .projects td:first-child { font-weight: 600; }
+  .projects .tool { color: var(--muted); white-space: nowrap; }
+
+  .contact ul { list-style: none; padding: 0; margin: 0; }
+  .contact li { padding: 8px 0; border-bottom: 1px solid var(--rule); max-width: 480px; display: flex; justify-content: space-between; gap: 16px; }
+  .contact li span { color: var(--muted); }
+
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Ethar Youssef</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <h1>I turn accounting data into decisions.</h1>
+      <p class="lead">
+        Accounting graduate from Alexandria University and data analyst. I build dashboards and reports
+        in Excel, Power BI and Tableau, and use Python to clean and analyze data.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="#contact">Contact me</a>
+      </div>
+
+      <table class="ledger" aria-label="Summary">
+        <caption>Summary</caption>
+        <thead>
+          <tr><th scope="col">Item</th><th scope="col">Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Education</td><td>B.Com, Accounting, Alexandria University</td></tr>
+          <tr><td>Role</td><td>Data analyst</td></tr>
+          <tr><td>Tools</td><td>Excel, Power BI, Tableau, Python</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Result</td><td>Numbers that are accurate and easy to read</td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <!-- EDIT: write 2-3 sentences about yourself in your own words -->
+      <p>
+        My accounting background taught me to check every number and to explain what it means.
+        Today I use that habit in data analysis: cleaning messy data, finding the pattern, and
+        presenting it in a dashboard that anyone on the team can use.
+      </p>
+      <p>
+        I am looking for a data analyst role where I can work with financial and business data.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr><th scope="col">Tool</th><th scope="col">What I use it for</th></tr>
+          </thead>
+          <tbody>
+            <!-- EDIT: change these lines to match what you really do -->
+            <tr><td>Excel</td><td>Data cleaning, formulas, pivot tables, charts, slicer dashboards, financial reports</td></tr>
+            <tr><td>Power BI</td><td>Data models, DAX measures (YoY, MoM, YTD), what-if parameters, drill-down and interactive dashboards</td></tr>
+            <tr><td>Tableau</td><td>Visual analysis and dashboards</td></tr>
+            <tr><td>Python</td><td>Data cleaning and analysis with pandas</td></tr>
+            <tr><td>Accounting</td><td>Financial statements, budgeting, reconciliation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr>
+              <th scope="col">Project</th>
+              <th scope="col">Tool</th>
+              <th scope="col">What it shows</th>
+              <th scope="col">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- EDIT: to add another project, copy one <tr>...</tr> block below and change the text and link. -->
+            <tr>
+              <td>Superstore Sales &amp; Profit Dashboard</td>
+              <td class="tool">Power BI, DAX</td>
+              <td>A 10-page report on sales, profit, cost, discount and quantity. It compares each KPI with last year, last month and year-to-date, breaks profit down by category, region, segment, state and weekday, and has a what-if page, custom tooltips and a customer loyalty view.</td>
+              <td><a href="https://github.com/Ethar208/Ethar-Youssef/blob/main/SuperStore/SuperStorePBI-2%20(1).pdf" target="_blank" rel="noopener">View</a></td>
+            </tr>
+            <tr>
+              <td>Social Media Analytics Dashboard</td>
+              <td class="tool">Power BI, DAX</td>
+              <td>An overview page plus one page each for Instagram, Facebook, X and LinkedIn. It tracks impressions, post reach, new fans, audience growth rate, engagement rate and response rate by month, with slicers and a growth comparison across the four platforms.</td>
+              <td><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td>Call Center Performance Dashboard (2022)</td>
+              <td class="tool">Power BI, DAX</td>
+              <td>Tracks calls offered, handled and abandoned, average speed of answer (ASA), service level and abandonment rate. Compares actual calls with the forecast (variance and accuracy) by month, day, project and agent, and shows weekday versus weekend call patterns. Includes an analysis page explaining how to read each KPI.</td>
+              <td><a href="#">View</a></td>
+            </tr>
+            <tr>
+              <td>Amazon Sales Analysis Dashboard</td>
+              <td class="tool">Excel</td>
+              <td>Cleaned and combined 20,200 orders (2022 to 2023) across orders, customers and products, then built pivot tables, 10 charts and an interactive dashboard with slicers for year, month, country, category, payment method, rating and customer segment. It covers revenue and profit, year-over-year change, discount impact, customer ratings, payment methods and peak months, and ends with recommendations.</td>
+              <td><a href="#">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <ul>
+        <!-- EDIT: put your real email and profile links -->
+        <li><span>Email</span><a href="mailto:your.email@example.com">your.email@example.com</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/your-profile">linkedin.com/in/your-profile</a></li>
+        <li><span>GitHub</span><a href="https://github.com/Ethar208">github.com/Ethar208</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Ethar Youssef</div>
+</footer>
+
+</body>
+</html>
