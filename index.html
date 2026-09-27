@@ -95,7 +95,8 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 .cert-card .sub{margin:0 0 8px;color:var(--muted);font-size:.88rem}
 .cert-card .shot{margin-bottom:12px;border-radius:2px}
 .cert-card p:last-child{margin:0;font-size:.92rem}
-</style></head><body>
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head><body>
 <header class="top"><div class="wrap"><a class="brand" href="#top">Ethar Youssef</a>
 <nav aria-label="Main"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a></nav></div></header>
 <main id="top"><div class="wrap">
@@ -105,7 +106,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 <h1>I turn accounting data into decisions.</h1>
 </div>
 <p class="lead">Accounting graduate from Alexandria University and data analyst. I build dashboards and reports in Excel, Power BI and Tableau, and use Python to clean and analyze data.</p>
-<div class="buttons"><a class="btn primary" href="Ethar_Youssef_CV.pdf" download>Download CV</a><a class="btn ghost" href="#projects">See my projects</a><a class="btn ghost" href="#contact">Contact me</a></div>
+<div class="buttons"><a class="btn primary" href="https://ethar208.github.io/Ethar-Youssef/Ethar_Youssef_CV.pdf" download>Download CV</a><a class="btn ghost" href="#projects">See my projects</a><a class="btn ghost" href="#contact">Contact me</a><div id="heroQR" style="margin-top:16px;padding:10px;background:#fff;display:inline-block;border-radius:8px;"></div><p style="font-size:12px;color:var(--muted,#4F6B64);margin-top:4px;">Scan to open this portfolio on your phone</p></div>
 <div class="social">
 <a href="https://www.linkedin.com/in/ethar-youssef/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
 <a href="https://github.com/Ethar208" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.9 10.8.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2A11.4 11.4 0 0 1 12 6.2c1 0 2 .1 3 .4 2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6C20.2 21.3 23.5 17 23.5 12 23.5 5.7 18.3.5 12 .5z"/></svg></a>
@@ -245,4 +246,4 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px;border-top:1px soli
 var d=document.getElementById("d"),di=document.getElementById("di");
 document.querySelectorAll(".shot").forEach(function(b){b.addEventListener("click",function(){var i=b.querySelector("img");di.src=i.src;di.alt=i.alt;d.showModal();});});
 d.addEventListener("click",function(){d.close();});
-</script></body></html>
+</script><script>if(document.getElementById("heroQR")){new QRCode(document.getElementById("heroQR"),{text:"https://ethar208.github.io/Ethar-Youssef/",width:110,height:110,colorDark:"#15302B",colorLight:"#ffffff"});}</script></body></html>
