@@ -98,7 +98,7 @@
   </div>
   <div class="panel rounded-2xl p-6 flex flex-col items-center gap-3 justify-self-center">
     <div id="heroQR" class="p-3 bg-white rounded-lg"></div>
-    <p class="text-xs sub text-center">Scan to view dashboards on mobile</p>
+    <p class="text-xs sub text-center">Scan to view my CV</p>
   </div>
 </header>
 
@@ -203,7 +203,11 @@
   });
   document.getElementById('menuBtn').addEventListener('click', function(){ document.getElementById('mobileMenu').classList.toggle('hidden'); });
 
-  new QRCode(document.getElementById('heroQR'), {text: 'https://github.com/Ethar208', width:110, height:110, colorDark:'#15181F', colorLight:'#ffffff'});
+  var CV_FILE = 'Ethar_Youssef_CV.pdf';
+  var cvUrl = (location.protocol === 'http:' || location.protocol === 'https:')
+    ? new URL(CV_FILE, location.href).href
+    : 'https://ethar208.github.io/Ethar-Youssef/' + CV_FILE;
+  new QRCode(document.getElementById('heroQR'), {text: cvUrl, width:110, height:110, colorDark:'#15181F', colorLight:'#ffffff', correctLevel: QRCode.CorrectLevel.M});
 
   // ---- Skills ----
   var skills = [
@@ -291,11 +295,11 @@
   // Leave '' to keep the GitHub link for that project.
   var DRIVE_LINKS = {
     'Retail Inventory Performance': 'https://drive.google.com/drive/folders/14do0U0xhV6hwtpDTRXh17eQprIADtTNE',
-    'Rollsiders Sales & Profitability': '',
+    'Rollsiders Sales & Profitability': 'https://drive.google.com/drive/folders/1Je81U5UuGUsXVyisEHztvtNYWBzYOwaQ',
     'SuperStore Performance': 'https://drive.google.com/drive/folders/1aQ9oRGjKNTlgQLPAdZXYjF9RE3_5sYV7',
     'Social Media Metrics': 'https://drive.google.com/drive/folders/1r5LToBDRujXb_kjbvYa_LmQc_FbO-4FD',
-    'Call Center Performance': '',
-    'Amazon Sales Performance': 'https://drive.google.com/drive/folders/1uUvpmgi174cfnMyeSXx1WilpwNg4eGps'
+    'Call Center Performance': 'https://drive.google.com/drive/folders/1AlJ_6y0OtLOE_xwHgFrU-0vEvHIFefeA',
+    'Amazon Sales Performance': 'https://drive.google.com/drive/folders/18GXNFkrEpGcbvAu5n574JpDNlpzVMRb1'
   };
   groups.forEach(function(g){ g.projects.forEach(function(p){
     var ext = (g.tool.indexOf('Excel') > -1) ? '.XLSX' : '.PBIX';
