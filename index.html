@@ -98,7 +98,7 @@
   </div>
   <div class="panel rounded-2xl p-6 flex flex-col items-center gap-3 justify-self-center">
     <div id="heroQR" class="p-3 bg-white rounded-lg"></div>
-    <p class="text-xs sub text-center">Scan to view my CV</p>
+    <a id="cvLink" href="https://ethar208.github.io/Ethar-Youssef/Ethar_Youssef_CV-1.pdf" target="_blank" rel="noopener" class="text-xs sub text-center underline">Scan or tap to view my CV</a>
   </div>
 </header>
 
@@ -203,11 +203,24 @@
   });
   document.getElementById('menuBtn').addEventListener('click', function(){ document.getElementById('mobileMenu').classList.toggle('hidden'); });
 
-  var CV_FILE = 'Ethar_Youssef_CV-1.pdf';
-  var cvUrl = (location.protocol === 'http:' || location.protocol === 'https:')
-    ? new URL(CV_FILE, location.href).href
-    : 'https://ethar208.github.io/Ethar-Youssef/' + CV_FILE;
-  new QRCode(document.getElementById('heroQR'), {text: cvUrl, width:110, height:110, colorDark:'#15181F', colorLight:'#ffffff', correctLevel: QRCode.CorrectLevel.M});
+  // ---- CV QR: always an absolute GitHub Pages URL; tolerates either file name ----
+  var CV_BASE  = 'https://ethar208.github.io/Ethar-Youssef/';
+  var CV_FILES = ['Ethar_Youssef_CV-1.pdf', 'Ethar_Youssef_CV.pdf'];
+  function drawCvQr(file){
+    var url = CV_BASE + file;
+    var box = document.getElementById('heroQR');
+    box.innerHTML = '';
+    new QRCode(box, {text: url, width:110, height:110, colorDark:'#15181F', colorLight:'#ffffff', correctLevel: QRCode.CorrectLevel.M});
+    var a = document.getElementById('cvLink');
+    if(a) a.href = url;
+  }
+  drawCvQr(CV_FILES[0]);
+  try {
+    fetch(CV_BASE + CV_FILES[0], {method:'HEAD'}).then(function(r){
+      if(r.ok) return;
+      return fetch(CV_BASE + CV_FILES[1], {method:'HEAD'}).then(function(r2){ if(r2.ok) drawCvQr(CV_FILES[1]); });
+    }).catch(function(){});
+  } catch(e){}
 
   // ---- Skills ----
   var skills = [
