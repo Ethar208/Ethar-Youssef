@@ -52,6 +52,8 @@
   .metric-box{background:color-mix(in srgb, var(--amber) 8%, transparent); border:1px solid color-mix(in srgb, var(--amber) 22%, transparent);}
   .badge-ring{background:radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--amber) 25%, transparent), transparent 70%);}
 
+  .view-project{display:inline-flex; align-items:center; gap:.4rem; border-bottom:2px solid var(--amber); padding-bottom:2px; transition:gap .2s ease, opacity .2s;}
+  .view-project:hover{gap:.7rem; opacity:.9;}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
 </style>
 </head>
@@ -346,7 +348,7 @@
 
   var dashboardImages = {};
   function dashboardBlock(idx, subIdx, d){
-    var id = 'deep-'+idx+'-'+subIdx, qid = 'pqr-'+idx+'-'+subIdx, imgKey = 'img-'+idx+'-'+subIdx;
+    var id = 'deep-'+idx+'-'+subIdx, imgKey = 'img-'+idx+'-'+subIdx;
     if(d.image){ dashboardImages[imgKey] = d.image; }
     var accessUrl = d.drive || 'https://github.com/Ethar208';
     return '<div class="panel rounded-2xl p-5 md:p-6">'+
@@ -361,11 +363,7 @@
         '</div>'+
         '<div class="flex flex-col gap-3">'+
           techBlock(id, d)+
-          '<a href="'+accessUrl+'" target="_blank" rel="noopener" class="text-center text-xs px-4 py-2.5 rounded-lg bg-amber-fill text-white font-medium shadow-sm hover:opacity-90">🔒 Request File Access ('+(d.ext || '.PBIX')+')</a>'+
-          '<div class="p-2.5 panel rounded-xl flex items-center gap-3">'+
-            '<div id="'+qid+'" data-url="'+accessUrl+'" class="p-1 bg-white rounded-lg shrink-0"></div>'+
-            '<div><p class="text-[11px] font-medium">Scan for File Access</p><p class="text-[10px] sub">'+(d.drive ? 'Request access · owner approval required' : 'Direct GitHub link')+'</p></div>'+
-          '</div>'+
+          '<a href="'+accessUrl+'" target="_blank" rel="noopener" class="view-project self-start text-sm font-semibold amber">View Project <span aria-hidden="true">↗</span></a>'+
         '</div>'+
       '</div></div>';
   }
@@ -401,9 +399,6 @@
     b.querySelector('.chevron').classList.toggle('open');
   });
 
-  container.querySelectorAll('[id^="pqr-"]').forEach(function(el){
-    var u = el.dataset.url || 'https://github.com/Ethar208'; var sz = (u.indexOf('drive.google.com') > -1) ? 96 : 60; new QRCode(el, {text:u, width:sz, height:sz, colorDark:'#15181F', colorLight:'#ffffff', correctLevel: QRCode.CorrectLevel.M});
-  });
 
   window.openPreview = function(title, imgKey){
     var image = imgKey ? dashboardImages[imgKey] : null;
