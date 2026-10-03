@@ -100,7 +100,7 @@
   </div>
   <div class="panel rounded-2xl p-6 flex flex-col items-center gap-3 justify-self-center">
     <div id="heroQR" class="p-3 bg-white rounded-lg"></div>
-    <a id="cvLink" href="https://ethar208.github.io/Ethar-Youssef/Ethar_Youssef_CV-1.pdf" target="_blank" rel="noopener" class="text-xs sub text-center underline">Scan or tap to view my CV</a>
+    <a id="cvLink" href="https://ethar208.github.io/Ethar-Youssef/Ethar_Youssef_CV-1-1.pdf" target="_blank" rel="noopener" class="text-xs sub text-center underline">Scan or tap to view my CV</a>
   </div>
 </header>
 
@@ -205,9 +205,9 @@
   });
   document.getElementById('menuBtn').addEventListener('click', function(){ document.getElementById('mobileMenu').classList.toggle('hidden'); });
 
-  // ---- CV QR: always an absolute GitHub Pages URL; tolerates either file name ----
+  // ---- CV QR: always an absolute GitHub Pages URL; falls back to the older file name ----
   var CV_BASE  = 'https://ethar208.github.io/Ethar-Youssef/';
-  var CV_FILES = ['Ethar_Youssef_CV-1.pdf', 'Ethar_Youssef_CV.pdf'];
+  var CV_FILES = ['Ethar_Youssef_CV-1-1.pdf', 'Ethar_Youssef_CV-1.pdf'];
   function drawCvQr(file){
     var url = CV_BASE + file;
     var box = document.getElementById('heroQR');
